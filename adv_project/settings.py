@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
+    'message',
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -151,3 +152,16 @@ STATIC_URL = '/static/'
 
 import django_heroku
 django_heroku.settings(locals())
+
+
+# import pusher
+
+# pusher_client = pusher.Pusher(
+#   app_id=config('PUSHER_APP_ID'),
+#   key=config('PUSHER_APP_KEY'),
+#   secret=('PUSHER_APP_SECRET'),
+#   cluster='us2',
+#   ssl=True
+# )
+
+# pusher_client.trigger('my-channel', 'my-event', {'message': 'hello world'})
