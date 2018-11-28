@@ -7,6 +7,7 @@ urlpatterns = [
     url('login', views.login),
     # path('', include('rest_auth.urls')),
     # path('registration/', include('rest_auth.registration.urls')),
+    
     # url(r'^$', index),
     # url(r'^admin/', admin.site.urls),
     # # url(r'^login/$', views.login, {'template_name': 'login.html'}), 
