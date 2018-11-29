@@ -6,22 +6,9 @@ from decouple import config
 from django.contrib.auth.models import User
 from .models import *
 from rest_framework.decorators import api_view 
-from rest_framework import serializers, viewsets
 import json
 # from .models import Conversation
 
-
-
-class AdventureSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta: 
-        model: Adventure
-        # fields = ('Move', 'Text')
-
-
-class AdventureViewSet(viewsets.ModelViewSet):
-    serializer_class = AdventureSerializer
-    queryset = Adventure.objects.none()
-    pass
 
 # instantiate pusher
 pusher = Pusher(app_id=config('PUSHER_APP_ID'), key=config('PUSHER_APP_KEY'), secret=config('PUSHER_APP_SECRET'), cluster=config('PUSHER_CLUSTER'))
