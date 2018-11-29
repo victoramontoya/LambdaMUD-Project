@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from decouple import config
 from django.contrib.auth.models import User
 from .models import *
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, serializers, viewsets
 import json
 # from .models import Conversation
 
