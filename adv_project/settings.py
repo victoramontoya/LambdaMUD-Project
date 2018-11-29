@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 # ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
 # ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
