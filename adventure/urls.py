@@ -2,7 +2,7 @@ from django.conf.urls import url
 from . import api
 from rest_framework import routers
 from django.urls import path, include, re_path
-from adventure.api import PersonalNoteViewSet
+from adventure.api import AdventureViewSet
 
 
 router = routers.DefaultRouter()
