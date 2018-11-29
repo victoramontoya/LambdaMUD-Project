@@ -10,11 +10,3 @@ class Conversation(models.Model):
     status = models.CharField(blank=True, null=True, max_length=225)
     created_at = models.DateTimeField(auto_now=True)
 
-
-# class Player(models.Model):
-#     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
-#     user = models.ForeignKey( User, on_delete=models.CASCADE)
-#     name = models.CharField(max_length=30)
-
-#     def __str__(self):
-#         return self.user.name
