@@ -4,6 +4,8 @@ export const ERROR = 'ERROR';
 export const SUCCESS_ADVENTURE = 'SUCCESS_ADVENTURE';
 export const SUCCESS_CHAT = 'SUCCESS_CHAT';
 export const UPDATING = "UPDATING";
+export const SET_TOKEN = "SET_TOKEN";
+export const LOGIN_PENDING = "LOGIN_PENDING"
 
 export const createAdventure = () => {
     return (dispatch) => {
@@ -49,3 +51,17 @@ export const createChat = (message) => {
             })
     }
 }
+
+export const setToken = (data) => {
+    return {
+        type: SET_TOKEN,
+        data
+    }
+}
+
+// export const setToken = (data) => {
+//     return dispatch => {
+//         dispatch({type: SET_TOKEN});
+//         data
+//     }
+// }

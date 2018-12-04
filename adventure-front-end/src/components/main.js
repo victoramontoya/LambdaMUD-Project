@@ -1,7 +1,10 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Adventure from './Adventure'
-import './Main.css'
+import Login from './Login'
+import Register from './Register'
+
+// import './Main.css'
 
 
 // The Main component renders one of the three provided
@@ -11,7 +14,9 @@ import './Main.css'
 // when the pathname is exactly the string "/"
 const Main = () => (
     <Switch>
-        <Route exact path='/adventure' component={Adventure} />
+        <Route exact path='/api/login' component={Login} />
+        <Route path='/api/register' component={Register} />
+
 
     </Switch>
 

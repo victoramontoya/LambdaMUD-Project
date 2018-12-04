@@ -6,11 +6,11 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import adventureReducer from './reducers';
+import rootReducer from './reducers';
 import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(adventureReducer, applyMiddleware(logger, thunk));
+const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 
 ReactDOM.render(
     <Router>

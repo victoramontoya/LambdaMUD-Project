@@ -1,4 +1,5 @@
-import { PENDING, ERROR, SUCCESS_CHAT, SUCCESS_ADVENTURE, UPDATING } from '../actions';
+import { combineReducers } from 'redux';
+import { PENDING, ERROR, SUCCESS_CHAT, SUCCESS_ADVENTURE, UPDATING, SET_TOKEN } from '../actions';
 
 const initialState = {
     chat: [],
@@ -8,10 +9,20 @@ const initialState = {
     creatingChat: false,
     updatingChat: false,
     error: null,
+    tokenInitialState : null,
     // chat: {
     //     modal: false,
 
     // }
+}
+
+const token = (state = initialState, action) => {
+    switch (action.type) {
+        case SET_TOKEN:
+            return action.data;
+        default:
+            return state;
+    }
 }
 
 const adventureReducer = (state = initialState, action) => {
@@ -44,4 +55,15 @@ const adventureReducer = (state = initialState, action) => {
 
 }
 
-export default adventureReducer;
+const appReducer = combineReducers({
+    token,
+    adventureReducer
+
+})
+
+const rootReducer = (state, action) => {
+    return appReducer(state, action);
+}
+
+
+export default rootReducer;
