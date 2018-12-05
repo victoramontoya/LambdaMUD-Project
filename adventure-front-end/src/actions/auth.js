@@ -46,7 +46,7 @@ export const createUser = ({ username, password1, password2 }) => {
         dispatch({ type: PENDING });
         console.log(username);
         axios
-            .post(`http://localhost:8000/api/registration/`, { username, password1, password2 })
+            .post(`https://lambda-mud-victor.herokuapp.com/api/registration/`, { username, password1, password2 })
             .then(response => {
                 // Cookies.save('token', response.data.token, { path: '/api/registration' });
                 dispatch({ type: SUCCESS_USER, users: response.data })
@@ -62,7 +62,7 @@ export const loginUser = ({ username, password }) => {
     return dispatch => {
         dispatch({ type: PENDING });
         axios
-            .post(`http://127.0.0.1:8000/api/login`, { username, password })
+            .post(`https://lambda-mud-victor.herokuapp.com/api/login`, { username, password })
             .then(response => {
                 // Cookies.save('token', response.data.token, { path: '/api/login' });
                 dispatch({ type: AUTH_USER, user: response.data })
