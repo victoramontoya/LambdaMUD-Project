@@ -8,7 +8,8 @@ class Register extends Component {
         super(props);
         this.state = {
             Username: '',
-            Password: ''
+            Password1: '',
+            Password2: ''
         }
     };
 
@@ -22,7 +23,8 @@ class Register extends Component {
         this.props.createUser(this.state);
         this.setState({
             Username: '',
-            Password: ''
+            Password1: '',
+            Password2: ''
         });
         this.props.history.push(`/adv/adventure`)
     }
@@ -50,7 +52,18 @@ class Register extends Component {
                                 placeholder="Password"
                                 onChange={this.handleChange}
                                 value={this.state.password}
-                                name="password"
+                                name="password1"
+                            />
+                        </div>
+                    </FormGroup>
+                    <FormGroup>
+                        <div>
+                            <Input
+                                type="text"
+                                placeholder="Re-Enter Your Password"
+                                onChange={this.handleChange}
+                                value={this.state.password}
+                                name="password2"
                             />
                         </div>
                     </FormGroup>

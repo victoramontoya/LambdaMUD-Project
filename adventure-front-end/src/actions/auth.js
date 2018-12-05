@@ -41,12 +41,12 @@ export const errorHandler = (dispatch, error, type) => {
 
 // https://lambda-mud-victor.herokuapp.com/
 
-export const createUser = (user) => {
+export const createUser = ({ username, password1, password2 }) => {
     return dispatch => {
         dispatch({ type: PENDING });
-        console.log(user);
+        console.log(username);
         axios
-            .post(`http://localhost:8000/api/registration/`, user)
+            .post(`http://localhost:8000/api/registration/`, { username, password1, password2 })
             .then(response => {
                 // Cookies.save('token', response.data.token, { path: '/api/registration' });
                 dispatch({ type: SUCCESS_USER, users: response.data })
