@@ -39,15 +39,16 @@ export const errorHandler = (dispatch, error, type) => {
     }
 }
 
+// https://lambda-mud-victor.herokuapp.com/
 
 export const createUser = (user) => {
     return dispatch => {
         dispatch({ type: PENDING });
         console.log(user);
         axios
-            .post(`http://127.0.0.1:8000/api/registration`, user)
+            .post(`http://localhost:8000/api/registration/`, user)
             .then(response => {
-                Cookies.save('token', response.data.token, { path: '/api/registration' });
+                // Cookies.save('token', response.data.token, { path: '/api/registration' });
                 dispatch({ type: SUCCESS_USER, users: response.data })
                 window.location.href = '/api/adv';
             })
@@ -61,9 +62,9 @@ export const loginUser = ({ username, password }) => {
     return dispatch => {
         dispatch({ type: PENDING });
         axios
-            .put(`http://127.0.0.1:8000/api/login`, { username, password })
+            .post(`http://127.0.0.1:8000/api/login`, { username, password })
             .then(response => {
-                Cookies.save('token', response.data.token, { path: '/api/login' });
+                // Cookies.save('token', response.data.token, { path: '/api/login' });
                 dispatch({ type: AUTH_USER, user: response.data })
                 window.location.href = '/api/adv';
 
@@ -76,7 +77,7 @@ export const loginUser = ({ username, password }) => {
 export function logoutUser() {
     return function (dispatch) {
         dispatch({ type: UNAUTH_USER });
-        Cookies.remove('token', { path: '/api/logout' });
+        // Cookies.remove('token', { path: '/api/logout' });
 
         window.location.href = '/api/login';
     }

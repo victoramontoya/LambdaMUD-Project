@@ -1,2 +1,2 @@
-export const URL = process.env.API_URL;
-export const LOGIN = "/login";
+// export const URL = process.env.API_URL;
+// export const LOGIN = "/login";

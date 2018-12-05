@@ -66,13 +66,13 @@ def move(request):
 @csrf_exempt
 @api_view(["POST"])
 def say(request):
-    pusher_client = pusher.Pusher(
-    app_id='658280',
-    key='040beb8e47f7cd255c5b',
-    secret='0e115ad4612548f1fa43',
-    cluster='us2',
-    ssl=True
-    )
+    player = request.user.player
+    player_id = player.id
+    player_uuid = player.uuid
+    data = json.loads(request.body)
+    room = player.room()
 
-    pusher_client.trigger('my-channel', 'my-event', {'message': 'hello world'})
-    return JsonResponse({'error':"Not yet implemented"}, safe=True, status=500)
+
+
+    pusher.trigger(u'players-channel', u'my-event', {'message': 'hello world'})
+    return JsonResponse({' Players in current room receive a message:'}, safe=True, status=500)

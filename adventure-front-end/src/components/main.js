@@ -14,8 +14,10 @@ import Register from './Register'
 // when the pathname is exactly the string "/"
 const Main = () => (
     <Switch>
-        <Route exact path='/api/login' component={Login} />
-        <Route path='/api/register' component={Register} />
+        <Route exact path='/adv/login' component={Login} />
+        <Route path='/adv/register' component={Register} />
+        <Route path='/adv/adventure' component={Adventure} />
+
 
 
     </Switch>

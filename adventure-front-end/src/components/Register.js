@@ -24,13 +24,13 @@ class Register extends Component {
             Username: '',
             Password: ''
         });
-        this.props.history.push(`/api/login`)
+        this.props.history.push(`/adv/adventure`)
     }
 
     render() {
         return (
             <div>
-                <h5>Join our app:</h5>
+                <h5>Join our adventure community:</h5>
                 <Form>
                     <FormGroup>
                         <div>
