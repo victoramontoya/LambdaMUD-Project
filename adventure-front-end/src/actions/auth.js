@@ -66,7 +66,7 @@ export const loginUser = ({ username, password }) => {
             .then(response => {
                 // Cookies.save('token', response.data.token, { path: '/api/login' });
                 dispatch({ type: AUTH_USER, user: response.data })
-                window.location.href = '/api/adv';
+                window.location.href = '/api/adv/init';
 
             })
             .catch(() => {

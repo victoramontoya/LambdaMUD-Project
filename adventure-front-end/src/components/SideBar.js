@@ -1,19 +1,40 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'reactstrap';
-// import './SideBar.css'
+import Chat from './Chat'
+import { connect } from 'react-redux';
+import { createChat} from '../actions';
 
 
-const SideBar = () => (
+class SideBar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            adventure: []
+        }
+    };
+
+
+
+handleChat = e => {
+    e.preventDefault();
+    console.log(this.state);
+    this.props.startChat(this.state);
+}
+
+render() {
+    return (
     <div>
         <h2>Adventure Chat</h2>
-
-        <Link to='/api/chat'>
-            <button className={"button"} pathto='/api/chat' >
+            <Button onClick={this.props.handleChat} >
                 Start Chat
-                </button>
-        </Link>
+                </Button>
+        <Chat chat={this.state.Chat} />
     </div>
-)
+    )
 
-export default SideBar
+}
+};
+    
+
+export default connect(null, { createChat })(SideBar);

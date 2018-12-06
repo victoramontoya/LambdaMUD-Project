@@ -3,6 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 import Adventure from './Adventure'
 import Login from './Login'
 import Register from './Register'
+import StartAdventure from './StartAdventure'
+
 
 // import './Main.css'
 
@@ -14,9 +16,12 @@ import Register from './Register'
 // when the pathname is exactly the string "/"
 const Main = () => (
     <Switch>
-        <Route exact path='/adv/login' component={Login} />
-        <Route path='/adv/register' component={Register} />
-        <Route path='/adv/adventure' component={Adventure} />
+        <Route exact path='/api/login' component={Login} />
+        <Route exact path='/' component={Login} />
+        <Route path='/api/register' component={Register} />
+        <Route path='/api/adv/init' component={StartAdventure} />
+        <Route path='/api/adv/move' component={Adventure} />
+
 
 
 

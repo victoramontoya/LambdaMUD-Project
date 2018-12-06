@@ -29,7 +29,6 @@ class Login extends Component {
             Username: '',
             Password: ''
         });
-        // this.props.history.push(`/api/adv`)
     }
 
     render() {

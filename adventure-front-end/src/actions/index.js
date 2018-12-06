@@ -11,9 +11,10 @@ export const createAdventure = () => {
     return (dispatch) => {
         dispatch({ type: PENDING });
         axios
-            .get('http://127.0.0.1:8000/api/adv')
+            .get('https://lambda-mud-victor.herokuapp.com/api/adv/init')
             .then(response => {
-                dispatch({ type: SUCCESS_ADVENTURE, adventures: response.data })
+                dispatch({ type: SUCCESS_ADVENTURE, adventure: response.data })
+                window.location.href = '/api/adv/move'
             })
             .catch(err => {
                 dispatch({ type: ERROR, error: 'ERROR FETCHING ADVENTURE' })
@@ -27,7 +28,7 @@ export const moveAdventure = (move) => {
         dispatch({ type: PENDING });
         console.log(move);
         axios
-            .post('http://127.0.0.1:8000/api/adv', move)
+            .post('https://lambda-mud-victor.herokuapp.com/api/adv/move', move)
             .then(response => {
                 dispatch({ type: SUCCESS_ADVENTURE, adventure: response.data })
             })
@@ -42,7 +43,7 @@ export const createChat = (message) => {
         dispatch({ type: PENDING });
         console.log(message);
         axios
-            .post('http://127.0.0.1:8000/api/adv', message)
+            .post('https://lambda-mud-victor.herokuapp.com/api/adv/say', message)
             .then(response => {
                 dispatch({ type: SUCCESS_CHAT, chat: response.data })
             })

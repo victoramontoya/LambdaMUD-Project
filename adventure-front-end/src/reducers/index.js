@@ -28,12 +28,7 @@ const token = (state = initialState, action) => {
 const adventureReducer = (state = initialState, action) => {
     switch (action.type) {
         case PENDING:
-            return Object.assign({}, state, { updatingChat: true });
-        case SUCCESS_CHAT:
-            return Object.assign({}, state, {
-                chat: action.chat,
-                updatingChat: false
-            });
+            return Object.assign({}, state, { fetchingAdventure: true });
         case SUCCESS_ADVENTURE:
             return Object.assign({}, state, {
                 adventure: action.adventure,
@@ -44,10 +39,29 @@ const adventureReducer = (state = initialState, action) => {
                 error: action.error,
                 fetchingAdventure: false
             });
+        default:
+            return state;
+    }
+
+}
+
+
+const chatReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case SUCCESS_CHAT:
+            return Object.assign({}, state, {
+                chat: action.chat,
+                updatingChat: false
+            });
+        case ERROR:
+            return Object.assign({}, state, {
+                error: action.error,
+                fetchingAdventure: false
+            });
         case UPDATING:
             return Object.assign({}, state, {
-                updating: true,
-                adventure: action.adventure
+                updatingChat: true,
+                chat: action.chat
             });
         default:
             return state;
@@ -57,7 +71,8 @@ const adventureReducer = (state = initialState, action) => {
 
 const appReducer = combineReducers({
     token,
-    adventureReducer
+    adventureReducer,
+    chatReducer
 
 })
 

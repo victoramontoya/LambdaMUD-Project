@@ -1,32 +1,25 @@
 
 /// onclicks or on button push for game event listeners
 /// render the game
-
 import React, { Component } from 'react';
-import { moveAdventure } from '../actions';
+import { createChat } from '../actions';
 import { connect } from 'react-redux';
-import { Button } from 'reactstrap';
 
 
 
-class Adventure extends Component {
+class Chat extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            adventure: []
+            chat: []
         }
     };
 
 
-    handleMove = (e) => {
-        e.preventDefault();
-        this.props.moveAdventure(this.state);
-    };
-
     render() {
         return (
             <div>
-                <Adventure adventure={this.state.Adventure}/>
+                <Chat chat={this.state.Chat} />
             </div>
         )
     }
@@ -35,9 +28,9 @@ function mapStateToProps(state) {
     return {
         errorMessage: state.error,
         message: state.message,
-        adventure: state.adventure
+        chat: state.chat
     };
 }
 
 
-export default connect(mapStateToProps, { moveAdventure })(Adventure);
+export default connect(mapStateToProps, { createChat })(Chat);
