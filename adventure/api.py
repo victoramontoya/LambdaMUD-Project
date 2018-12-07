@@ -79,5 +79,4 @@ def say(request):
     for p_uuid in currentPlayerUUIDs:
         pusher.trigger(f'p-channel-{p_uuid}', u'broadcast',
                    {'message': f'{player.user.username} says {message}'})
-
-    return JsonResponse({'name': player.user.username, 'title': room.title, 'description': room.description, 'players': players, 'error_msg': ""}, safe=True)
+    return JsonResponse({'message': message}, safe=True)
